@@ -1,6 +1,6 @@
 let codeBlock =
   '<div class="form-creator-container">' +
-  "<h2>Form Express</h2>" +
+  "<h3> Create Form </h3>" +
   '<div class="field-type-container">' +
   '<label for="field-type">Field Type:</label>' +
   '<select id="field-type">' +
