@@ -1,28 +1,31 @@
 let codeBlock =
-'<div class="container">' +
-'<form id="form">' +
-'<div class="form-group">' +
-'<label for="question-input">Question:</label>' +
-'<input type="text" id="question-input" placeholder="Enter your question here">' +
-'</div>' +
-'<div class="form-group">' +
-'<label for="answer-type">Answer Type:</label>' +
-'<select id="answer-type">' +
-'<option value="text">Text</option>' +
-'<option value="radio">Multiple Choice (Radio Buttons)</option>' +
-'<option value="checkbox">Multiple Choice (Checkboxes)</option>' +
-'</select>' +
-'</div>' +
-'<div class="form-group options-group" id="options-group">' +
-'<label for="options-input">Options:</label>' +
-'<input type="text" id="options-input" placeholder="Enter options separated by commas">' +
-'</div>' +
-'<button type="button" id="add-question-btn">Add Question</button>' +
+'<div class="main-container"> ' +
+'<h1>Google Form Creator</h1> ' +
+'<form id="form"> ' +
+'<div class="form-group"> ' +
+'<label for="question-input">Question:</label> ' +
+'<input type="text"  id="question-input"  placeholder="Enter your question here" /> ' +
+'</div> ' +
+'<div class="form-group"> ' +
+'<label for="answer-type">Answer Type:</label> ' +
+'<select id="answer-type"> ' +
+'<option value="text">Text</option> ' +
+'<option value="radio">Multiple Choice (Radio Buttons)</option> ' +
+'<option value="checkbox">Multiple Choice (Checkboxes)</option> ' +
+'</select> ' +
+'</div> ' +
+'<div class="form-group options-group" id="options-group"> ' +
+'<label for="options-input">Options:</label> ' +
+'<input type="text" id="options-input" placeholder="Enter options separated by commas"/> ' +
+'</div> ' +
+'<button type="button" id="add-question-btn">Add Question</button> ' +
 '<button type="button" id="create-form-btn">Create Form</button> ' +
-'</form>' +
-'<h2>Preview</h2>' +
-'<div id="preview"></div>' +
-'</div>';
+'</form> ' +
+'<div class="preview-container"> ' +
+'<h2>Preview</h2> ' +
+'<div id="preview"></div> ' +
+'</div> ' +
+'</div> ' ;
 
 // basic block
 

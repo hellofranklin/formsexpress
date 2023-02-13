@@ -1,4 +1,4 @@
-.container {
+.main-container {
   width: 800px;
   margin: 0 auto;
   text-align: center;
@@ -66,4 +66,8 @@ h2 {
   cursor: pointer;
   border-radius: 5px;
   margin-top: 20px;
+}
+
+.preview-container {
+  background-color: antiquewhite;
 }
