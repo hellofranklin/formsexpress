@@ -2,10 +2,13 @@ footer {
   padding: 2rem;
   background-color: var(--overlay-background-color);
   font-size: var(--body-font-size-s);
+  position:absolute;
+  bottom:0;
+  width: 100%;
 }
 
 footer .footer {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: auto;
 }
 
