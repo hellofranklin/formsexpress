@@ -97,10 +97,10 @@ main .form .form-checkbox-wrapper label {
 
 main .form .button {
   cursor: pointer;
-  background: rgb(20 115 230);
+  background: #9795f0;
   color: white;
   border-radius: 16px;
-  font-size: var(--type-body-s-size);
+  font-size: 0.7em;
   font-weight: 300;
   padding: 6px 16px;
   border: none;
@@ -109,5 +109,5 @@ main .form .button {
 
 main .form .form-submit-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
