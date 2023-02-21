@@ -4,8 +4,9 @@ let codeBlock = `
     <div class="spinner-animation"></div>
 </div>
 <div class="main-form-container" id="main-form-container">
-    
+   
     <div class="form-nav-container form-item" id = "form-nav-container">
+       
         <h4 id="user-welcome-title"> Welcome User </h4>
         <div class="tab-container">
             <div class="tab active" id="new-form-tab" data-title="New Form"> New Form </div>
@@ -19,7 +20,7 @@ let codeBlock = `
             <img class="submit-icon">
        </div>
        <div class="createform-container " id="createform-container">
-         <h2 contenteditable="true" id="my-form-title"> Untitled Form</h2>
+         <h2 contenteditable="true" id="my-form-title"> Untitled</h2>
        </div>
        <div class="myforms-container" id="myforms-container">
        
@@ -27,16 +28,20 @@ let codeBlock = `
       <div class="preview-container " id="preview-container">
        
       </div>
+
+      <div class="side-container" id = "side-container">
+      <div id="plus-btn">Add Fields</div>
+      <div id="options" class="hidden">
+          <button class="option-text" id="option-1"> Text Response</button>
+          <button class="option-text" id="option-2"> Single Choice </button>
+          <button class="option-text" id="option-3"> Multiple Choice </button>
+      </div>
+     
     </div>
-</div>
-<div class="side-container" id = "side-container">
-    <div id="plus-btn">Add New</div>
-    <div id="options" class="hidden">
-        <button class="option-text" id="option-1"> Text Response</button>
-        <button class="option-text" id="option-2"> Single Choice </button>
-        <button class="option-text" id="option-3"> Multiple Choice </button>
     </div>
+   
 </div>
+
 </div>
 
 `;
@@ -81,11 +86,7 @@ const initializeFields = () => {
     <input class="question-field-description" type="text" placeholder="Enter description.. (optional)">
     `;
 
-  const submitBtnHtmlString = `
-    <button class="submit-btn" id="submit-btn" type="submit" value="Create Form">
-    Create Form
-    </button>
-    `;
+  const submitBtnHtmlString = ` <button class="submit-btn" id="submit-btn" type="submit" value="Create Form"> Create Form </button>`;
 
   const requiredElementString = `
     <span id="required-text">Required</span>
@@ -265,7 +266,8 @@ const initializeFields = () => {
     )
       return;
 
-    mainFormContainer.insertAdjacentHTML("beforeend", submitBtnHtmlString);
+   // document.getElementById("form-action-container").insertAdjacentHTML("beforeend",submitBtnHtmlString);
+   mainFormContainer.insertAdjacentHTML("beforeend", submitBtnHtmlString);
     const submitBtn = document.getElementById("submit-btn");
 
     function getFormData() {
@@ -383,9 +385,13 @@ const initializeFields = () => {
     successIcon.src =
       'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check" viewBox="0 0 16 16">     <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>   </svg>';
 
-    let successMessage = document.createElement("p");
+    let successMessage = document.createElement("h6");
     successMessage.classList.add("success-message");
     successMessage.textContent = "Your form is successfully created";
+
+    let nextActionMessage = document.createElement("p");
+    nextActionMessage.classList.add("success-message");
+    nextActionMessage.textContent = "Go to My Forms, Publish and view your form";
 
     let formButton = document.createElement("a");
     formButton.classList.add("success-button");
@@ -401,8 +407,8 @@ const initializeFields = () => {
 
     successDiv.appendChild(successIcon);
     successDiv.appendChild(successMessage);
-    successDiv.appendChild(formButton);
-    successDiv.appendChild(formFolder);
+    successDiv.appendChild(nextActionMessage);
+
 
     updateUserForms(
       resultDetails.formTitle,

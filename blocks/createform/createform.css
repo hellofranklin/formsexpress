@@ -8,6 +8,10 @@ body {
   background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.createform-wrapper {
+  min-width: max-content;
+}
+
 .createform-wrapper .header-container{
   padding:5px;
   margin:0px;
@@ -112,10 +116,15 @@ h2#my-form-title {
   cursor: pointer;
 }
 
+div#side-container {
+  display: flex;
+  justify-content: right;
+}
+
 .createform-wrapper .side-container{
  
-  margin-left:5%; 
-  transform: translate(0%, 50%);
+  margin-top:5%; 
+
 }
 
 .createform-wrapper #plus-btn{
@@ -220,6 +229,11 @@ h2#my-form-title {
   
 }
 
+.ans-choice {
+  display: flex;
+  flex-direction: row;
+}
+
 .createform-wrapper input.choice-field::placeholder{
   color: #aaa;
 }
@@ -268,12 +282,29 @@ h2#my-form-title {
   font-size: 20px;
   margin-top: 40px;
   padding: 15px;
-  background-color: #5451fb;
+  background-color: rgb(131 53 120);
   border: none;
   border-radius: 5px;
   color: #fff;
   box-shadow: 0 2px 8px rgb(0 0 0 / 33%);
   transition: all .3s ease;
+}
+.createform-wrapper .submit-btn {
+
+background-color: rgb(147 45 132);
+border: none;
+color: #ffffff;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+font-weight: bold;
+margin: 40px 2px;
+box-shadow: 0 2px 8px rgb(0 0 0 / 33%);
+text-align: center;
+border-radius: 5px;
+
 }
 
 
