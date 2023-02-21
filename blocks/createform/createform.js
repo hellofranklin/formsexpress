@@ -1,13 +1,10 @@
 let codeBlock = `
-
 <div id="top-container">
 <div id="spinner">
     <div class="spinner-animation"></div>
 </div>
 <div class="main-form-container" id="main-form-container">
-    <div class="title-container form-item">
-        <h1 contenteditable="true" id="form-title-heading"> FORMS EXPRESS</h1>
-    </div>
+    
     <div class="form-nav-container form-item" id = "form-nav-container">
         <h2 id="user-welcome-title"> Welcome User </h2>
         <div class="tab-container">
@@ -595,7 +592,7 @@ const initializeFields = () => {
         const successSheetLink = document.createElement("a");
         successSheetLink.classList.add("form-button");
         successSheetLink.innerText = "Results";
-        successSheetLink.href = form.resultSheetURL;
+        successSheetLink.href = form.resultSheetUrl;
         successSheetLink.target = "_blank";
 
         const publishForm = document.createElement("button");

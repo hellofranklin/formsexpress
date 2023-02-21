@@ -261,7 +261,7 @@ body {
   top: 7px;
 }
 
-.createform-wrapper g.submit-btn {
+.createform-wrapper .submit-btn {
   font-size: 20px;
   margin-top: 40px;
   padding: 15px;
@@ -573,3 +573,27 @@ body {
 }
 
 /* My Forms Css */
+
+
+
+
+
+
+
+
+/**** custom ***/
+
+.createform-wrapper a.form-button {
+  font-size: medium;
+}
+
+.createform-wrapper button.form-button {
+  font-size: medium;
+  font-weight: 400;
+}
+
+.createform-wrapper button.option-text {
+  margin: 0px;
+  margin-top: 2px;
+  background-color: white;
+}
