@@ -1,30 +1,49 @@
 let codeBlock =
-'<div class="top-container">' +
-'<div id="spinner">' +
-'<div class="spinner-animation"></div>' +
-'</div>' +
-'<div class="main-form-container" id="main-form-container">' +
-'<div class="title-container form-item">' +
-'<h1 contenteditable="true" id="form-title-heading"> Untitled Form </h1>' +
-'<input type="email" id="user-email" required placeholder="Enter your Gmail"/>' +
-'' +
-'<div id="result" class="hidden">' +
-'<p id="result-status"></p>' +
-'<p>Your <a id="result-form" href="#"></a> is ready to share.</p>' +
-'<p>Results & Edit form using <a id="result-folder-url" href="#"></a></p>' +
-'</div>' +
-'</div>' +
-'</div>' +
-'<div class="side-container">' +
-'<div id="plus-btn">Add New</div>' +
-'<div id="options" class="hidden">' +
-'<button class="option-text" id="option-1"> Text Response</button>' +
-'<button class="option-text" id="option-2"> Single Choice </button>' +
-'<button class="option-text" id="option-3"> Multiple Choice </button>' +
-'</div>' +
-'</div>' +
-'</div>' ;
+`
 
+<div id="top-container">
+<div id="spinner">
+    <div class="spinner-animation"></div>
+</div>
+<div class="main-form-container" id="main-form-container">
+    <div class="title-container form-item">
+        <h1 contenteditable="true" id="form-title-heading"> FORMS EXPRESS</h1>
+    </div>
+    <div class="form-nav-container form-item" id = "form-nav-container">
+        <h2 id="user-welcome-title"> Welcome User </h2>
+        <div class="tab-container">
+            <div class="tab active" id="new-form-tab" data-title="New Form"> New Form </div>
+            <div class="tab" id="my-forms-tab" data-title="My forms"> My Forms </div>
+            <div class="tab" id="preview-tab" data-title="Preview"> Preview </div>
+       </div>
+    </div>
+    <div class="form-action-container form-item" id = "form-action-container">
+        <div class="login-container form-item" id="login-container">
+            <input type="email" id="user-email-id" required placeholder="Enter your Gmail ID">
+            <img class="submit-icon">
+       </div>
+       <div class="createform-container " id="createform-container">
+         <h2 contenteditable="true" id="my-form-title"> Untitled Form</h2>
+       </div>
+       <div class="myforms-container" id="myforms-container">
+       
+      </div>
+      <div class="preview-container " id="preview-container">
+       
+      </div>
+    </div>
+</div>
+<div class="side-container" id = "side-container">
+    <div id="plus-btn">Add New</div>
+    <div id="options" class="hidden">
+        <button class="option-text" id="option-1"> Text Response</button>
+        <button class="option-text" id="option-2"> Single Choice </button>
+        <button class="option-text" id="option-3"> Multiple Choice </button>
+    </div>
+</div>
+</div>
+
+`;
 // basic block
 
 async function createFormBlock() {
@@ -46,320 +65,572 @@ export default async function decorate(block) {
 // lates
 
 const initializeFields = () => {
-  let plusBtn = document.getElementById("plus-btn");
-  const options = document.getElementById("options");
-  const option1 = document.getElementById("option-1");
-  const option2 = document.getElementById("option-2");
-  const option3 = document.getElementById("option-3");
-  const mainFormContainer = document.getElementById("main-form-container");
-  const submitBtn = document.getElementById("submit-btn");
-  const email = document.getElementById("user-email");
-  const FORM_EXPRESS_BACKEND_URL =
-    "https://script.google.com/macros/s/AKfycbw9GQJ7dtvHCBiM6Q0PkxKyF4KFUtPMvIDdv68A4MtIlHdSs09Xc24w97Q_M_Z4txut/exec?";
+  
+const mainFormContainer = document.getElementById("main-form-container");
+const topContainer = document.getElementById("top-container");
+const formActionContainer = document.getElementById("form-action-container");
+const createFormContainer = document.getElementById("createform-container");
+const formNavContainer = document.getElementById("form-nav-container");
+const email = document.getElementById("user-email");
+const FORM_EXPRESS_BACKEND_URL =
+    'https://script.google.com/macros/s/AKfycbzECajA0pHMfaYe21TKh4X6WuQju3Ppv6SpVi4gkbN1hpIn-v46IlvgqViDu2xHFz7j/exec?';
+const sideContainer = document.getElementById("side-container");
+const loginContainer = document.getElementById("login-container");
+const previewContainer = document.getElementById("preview-container");
+const myFormsContainer = document.getElementById("myforms-container");
+// // Event listeners
 
-  // Event listeners
+const textBoxDivHtml = `
+<input class="question-field" type="text" placeholder="Untitled Question">
+<input class="question-field-description" type="text" placeholder="Enter description.. (optional)">
+`;
 
-  plusBtn &&
-    plusBtn.addEventListener("click", () => {
-      options.classList.toggle("hidden");
-      options.style.animationFillMode = "fadeout";
-    });
+const submitBtnHtmlString = `
+<button class="submit-btn" id="submit-btn" type="submit" value="Create Form">
+Create Form
+</button>
+`;
 
-  option1 &&
-    option1.addEventListener("click", () => {
-      questionCreator("text");
-    });
-  option2 &&
-    option2.addEventListener("click", () => {
-      questionCreator("radio");
-    });
-  option3 &&
-    option3.addEventListener("click", () => {
-      questionCreator("checkbox");
-    });
+const requiredElementString = `
+<span id="required-text">Required</span>
+<label class="switch question-checkbox-label">
+<input type="checkbox">
+<span class="slider round"></span>
+</label>`
 
-  // Question Creator Function
-  function questionCreator(type) {
-    let formElement;
 
-    switch (type) {
-      case "text":
-        formElement = getTextBoxElement();
-        break;
-      case "checkbox":
-        formElement = getCheckBoxElement();
-        break;
+// Question Creator Function
+function questionCreator(type) {
+  let formElement;
+  switch (type) {
+    case "text":
+      formElement = getTextBoxElement();
+      break;
+    case "checkbox":
+      formElement = createMultipleChoiceQuestion('checkbox');
+      break;
+    case "radio":
+      formElement = createMultipleChoiceQuestion('radio');
+      break;
+    default:
+      formElement = getTextBoxElement();
+  }
+  createFormContainer.insertBefore(formElement, createFormContainer.lastChild);
+  addSubmitButton();
+}
 
-      case "radio":
-        formElement = getRadioBoxElement();
-        break;
+function getContainerDiv() {
+  let elementDiv = document.createElement("div");
+  elementDiv.classList.add("form-item", "user-form-item");
+  elementDiv.id = `item-${document.getElementsByClassName("user-form-item").length}`;
+  return elementDiv;
+}
 
-      default:
-        formElement = getTextBoxElement();
+function getTextBoxElement() {
+  let textBoxDiv = getContainerDiv();
+  textBoxDiv.classList.add("user-form-text-item");
+  textBoxDiv.innerHTML = textBoxDivHtml;
+  let questionFooter = getQuestionFooter();
+  textBoxDiv.appendChild(questionFooter);
+  return textBoxDiv;
+}
+
+//This function returns a multiple choice question with answers as radio option and allows to add options dynamically
+function createMultipleChoiceQuestion(type) {
+
+  let mcContainer = getContainerDiv(); 
+  mcContainer.classList.add("ms-container");
+  if (type === 'checkbox')
+    mcContainer.classList.add("user-form-multiplechoice-item");
+  else if (type === 'radio')
+    mcContainer.classList.add("user-form-singlechoice-item");
+
+  // Create a form element using the document.createElement() method
+  let answerContainerdiv = document.createElement('div');
+  answerContainerdiv.classList.add("mc-answer-container")
+
+  // Create an h4 (heading tag) to include the question
+  let input = document.createElement('input');
+  input.classList.add("question-field");
+  input.placeholder = "Untitled Question";
+  input.setAttribute("contenteditable", true);
+
+  //Add additional choices in a loop using the choices parameter
+  appendMultipleChoice(answerContainerdiv, 1, false, type);
+  appendMultipleChoice(answerContainerdiv, 2, false, type);
+
+  // append Heading, form and addOptionButton to the container and return it
+
+ 
+  mcContainer.appendChild(input);
+  mcContainer.appendChild(answerContainerdiv);
+  mcContainer.appendChild(getQuestionFooter());
+
+  return mcContainer;
+};
+
+function appendMultipleChoice(parentDiv, choiceNo, addDelIcon, type) {
+  let div = document.createElement("div");
+  div.classList.add(`choice-${choiceNo}`, "ans-choice");
+  div.id = `${choiceNo}`;
+
+  // Option Button - radio or checkbox
+  let optionButton = document.createElement('input');
+  optionButton.type = type;
+  optionButton.classList.add("option-button-type");
+  optionButton.disabled = true;
+  optionButton.name = `choice-${choiceNo}`;
+  optionButton.value = `Option-${choiceNo}`;
+
+  //Create label
+  let input = document.createElement('input');
+  input.type = "text";
+  input.classList.add("choice-field");
+  input.placeholder = `Option ${choiceNo}`;
+  input.addEventListener("focus", (event) => {
+    if (parentDiv.children.length <= 3) {
+      appendMultipleChoice(parentDiv, parentDiv.children.length + 1, true,type);
     }
+  });
 
-    mainFormContainer.insertBefore(formElement, mainFormContainer.lastChild);
-    addSubmitButton();
-  }
+  // add crossbutton
 
-  function getContainerDiv() {
-    let elementDiv = document.createElement("div");
-    elementDiv.classList.add("form-item");
-    elementDiv.classList.add("user-form-item");
-    elementDiv.classList.add("user-form-text-item");
-    elementDiv.id = `item-${
-      document.getElementsByClassName("user-form-item").length
-    }`;
-    return elementDiv;
-  }
+  let delSpan = document.createElement("span");
+  delSpan.id = `${choiceNo}`;
+  delSpan.classList.add("choice-delete-icon");
 
-  function getTextBoxElement() {
-    let textBoxDiv = getContainerDiv();
+  delSpan.addEventListener("click", (event) => {
+    deleteMultipleChoice(parentDiv, event.target.id);
+  })
 
-    let inputLabel = document.createElement("label");
-    inputLabel.classList.add("input-label");
-    inputLabel.textContent = "Untitled Question";
-    inputLabel.setAttribute("contenteditable", "true");
+  div.appendChild(optionButton);
+  div.appendChild(input);
+  addDelIcon && div.appendChild(delSpan);
+  parentDiv.appendChild(div);
 
-    let input = document.createElement("input");
-    input.classList.add("question-field");
-    input.type = "text";
+}
 
-    textBoxDiv.appendChild(inputLabel);
-    textBoxDiv.appendChild(input);
+function deleteMultipleChoice(parentDiv, choiceNo) {
+  let intChoice = parseInt(choiceNo) - 1;
+  let delChoice = parentDiv.children[intChoice];
+  delChoice.remove();
+  console.log(delChoice);
+}
 
-    let questionFooter = getQuestionFooter();
-    textBoxDiv.appendChild(questionFooter);
+function addChoice() {
+  let choice = document.createElement("input");
+  choice.classList.add("chocie-field");
+  choice.type = "text";
+  choice.placeholder = "choice";
 
-    return textBoxDiv;
-  }
+  // TO BE ADDED TO PARENT NODE, NEED TO GENERATE IDs DYNAMICALLY
 
-  function getRadioBoxElement() {
-    let radioBoxDiv = getContainerDiv();
+}
 
-    let inputLabel = document.createElement("label");
-    inputLabel.classList.add("input-label");
-    inputLabel.textContent = "Single Choice Question";
+function getQuestionFooter() {
 
-    let input = document.createElement("input");
-    input.classList.add("question-field");
-    input.type = "text";
-    input.placeholder = "Enter your Question";
+  let questionFooter = document.createElement("div");
+  questionFooter.classList.add("question-footer");
 
-    let choice1 = document.createElement("input");
-    choice1.classList.add("choice-field");
-    choice1.type = "text";
-    choice1.placeholder = "Choice 1";
+  let deleteIcon = document.createElement("img");
+  deleteIcon.classList.add("delete-icon");
+  deleteIcon.src = 'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>   </svg>';
 
-    let choice2 = document.createElement("input");
-    choice2.classList.add("choice-field");
-    choice2.type = "text";
-    choice2.placeholder = "Choice 2";
+  deleteIcon.addEventListener("click", (event) => {
+    let questionId = event.target.parentElement.parentElement.id;
+    let element = document.getElementById(questionId);
+    element.remove();
+    if (useFormItemsSize() == 0) {
+      document.getElementById('submit-btn').remove();
+    }
+  });
 
-    radioBoxDiv.appendChild(inputLabel);
-    radioBoxDiv.appendChild(input);
-    radioBoxDiv.appendChild(choice1);
-    radioBoxDiv.appendChild(choice2);
+  questionFooter.insertAdjacentHTML('beforeend', requiredElementString);
+  questionFooter.appendChild(deleteIcon);
 
-    let questionFooter = getQuestionFooter();
-    radioBoxDiv.appendChild(questionFooter);
-    return radioBoxDiv;
-  }
+  return questionFooter;
+}
 
-  function getCheckBoxElement() {
-    let radioBoxDiv = getContainerDiv();
+// Forms Submission & Process
 
-    let input = document.createElement("input");
-    input.classList.add("question-field");
-    input.type = "text";
-    input.placeholder = " Untitled Question";
+function useFormItemsSize() {
+  return document.getElementsByClassName("user-form-item").length;
+}
 
-    let choice1 = document.createElement("input");
-    choice1.classList.add("choice-field");
-    choice1.type = "text";
-    choice1.placeholder = "Choice 1";
+function addSubmitButton() {
+  //early return if nothing to do
+  if (useFormItemsSize() === 0 || document.getElementById('submit-btn') !== null) return;
+  
+  
+  mainFormContainer.insertAdjacentHTML( 'beforeend', submitBtnHtmlString );
+  const submitBtn = document.getElementById('submit-btn');
 
-    let choice2 = document.createElement("input");
-    choice2.classList.add("choice-field");
-    choice2.type = "text";
-    choice2.placeholder = "Choice 2";
+  function getFormData() {
+    let formElements = createFormContainer.querySelectorAll('div.user-form-item');
+    let formData = [];
+    for (let element of formElements) {
+        let formItem = {};
+        if (element.classList.contains("user-form-text-item")) {
 
-    let addChoiceButton = document.createElement("button");
-    addChoiceButton.classList.add("btn-add-choice");
-    addChoiceButton.setAttribute("onclick", "addChoice();");
-    addChoiceButton.textContent = "Add More";
+            const questionLabel = element.getElementsByTagName('input')[0].value;
+            const questionDescription = element.getElementsByTagName('input')[1].value;
+            formItem['name'] = questionLabel.replace(/\s/g, '');
+            formItem['label.value'] = questionLabel;
+            formItem['placeholder'] = questionDescription;
+            formItem['fieldType'] = '';
+            formItem['enums'] = '';
+            formItem['enumsNames'] = '';
+            formItem['events.click'] = '';
+            // formItem['isRequired'] = 'true';
+            formData.push(formItem);
+        } else if ( element.classList.contains('user-form-singlechoice-item') ) {
+            const questionLabel = element.getElementsByTagName('input')[0].value;
+            const ansChoices = element.querySelectorAll("div.ans-choice input.choice-field")
+            let enumsString = "";
+            if (ansChoices !== undefined && ansChoices !== null) {
+                ansChoices.forEach( (choice)=>{
+                    let inputChoice = choice.value;
+                    if ( inputChoice === undefined || inputChoice === null || inputChoice.trim() === '') {
+   
+                    } else if (enumsString === "") {
+                        enumsString += inputChoice.trim();
+                    } else {
+                        enumsString += `,${inputChoice.trim()}`;
+                    }
+                })
+            }
 
-    radioBoxDiv.appendChild(input);
-    radioBoxDiv.appendChild(choice1);
-    radioBoxDiv.appendChild(choice2);
-    radioBoxDiv.appendChild(addChoiceButton);
-
-    let questionFooter = getQuestionFooter();
-    radioBoxDiv.appendChild(questionFooter);
-
-    return radioBoxDiv;
-  }
-
-  function addChoice() {
-    let choice = document.createElement("input");
-    choice.classList.add("chocie-field");
-    choice.type = "text";
-    choice.placeholder = "choice";
-
-    // TO BE ADDED TO PARENT NODE, NEED TO GENERATE IDs DYNAMICALLY
-  }
-
-  function getQuestionFooter() {
-    let questionFooter = document.createElement("div");
-    questionFooter.classList.add("question-footer");
-
-    let requiredLabel = document.createElement("label");
-    requiredLabel.classList.add("switch", "question-checkbox-label");
-    let requiredInput = document.createElement("input");
-    requiredInput.type = "checkbox";
-    let requiredInputSpan = document.createElement("span");
-    requiredInputSpan.classList.add("slider", "round");
-    requiredLabel.appendChild(requiredInput);
-    requiredLabel.appendChild(requiredInputSpan);
-
-    let deleteIcon = document.createElement("img");
-    deleteIcon.classList.add("delete-icon");
-    deleteIcon.src =
-      'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>   </svg>';
-
-    deleteIcon.addEventListener("click", (event) => {
-      let questionId = event.target.parentElement.parentElement.id;
-      let element = document.getElementById(questionId);
-      element.remove();
-      if (useFormItemsSize() == 0) {
-        document.getElementById("submit-btn").remove();
-      }
-    });
-
-    questionFooter.appendChild(requiredLabel);
-    questionFooter.appendChild(deleteIcon);
-
-    return questionFooter;
-  }
-
-  // Forms Submission & Process
-
-  function useFormItemsSize() {
-    return document.getElementsByClassName("user-form-item").length;
-  }
-
-  function addSubmitButton() {
-    //early return if nothing to do
-    if (
-      useFormItemsSize() === 0 ||
-      document.getElementById("submit-btn") !== null
-    )
-      return;
-
-    let button = document.createElement("button");
-    button.classList.add("submit-btn");
-    button.id = "submit-btn";
-    button.type = "submit";
-    button.value = "Create Form";
-    button.textContent = "Create Form";
-    mainFormContainer.appendChild(button);
-
-    function getFormData() {
-      let formData = [];
-      let formElements = mainFormContainer.children;
-      for (let element of formElements) {
-        if (element.classList.contains("user-form-item")) {
-          let formItem = {};
-          if (element.classList.contains("user-form-text-item")) {
-            const label = element.getElementsByTagName("label")[0];
-            const inputElement = element.getElementsByTagName("input")[0];
-
-            formItem["Field"] = label.firstChild.textContent.replace(/\s/g, "");
-            formItem["Label"] = label.textContent;
-            formItem["Placeholder"] = inputElement.placeholder;
-            formItem["Type"] = "text-field";
-            formItem["Format"] = "email";
-          }
-          formData.push(formItem);
+            formItem['name'] = questionLabel.replace(/\s/g, '');
+            formItem['label.value'] = questionLabel;
+            formItem['placeholder'] = 'Select One';
+            formItem['fieldType'] = 'select';
+            formItem['enum'] = enumsString;
+            formItem['enumsNames'] = enumsString;
+            formItem['events.click'] = '';
+            // formItem['isRequired'] = 'true';
+            formData.push(formItem);
         }
-      }
-      return formData;
+
+       
     }
-
-    //add click event to button
-    button.addEventListener("click", (event) => {
-      let userEmailElement = document.getElementById("user-email");
-      let formTitleElement = document.getElementById("form-title-heading");
-      let formData = getFormData();
-
-      if (formData.length == 0) {
-        alert("form data is empty");
-      } else if (!/@gmail\.com$/.test(userEmailElement.textContent)) {
-        userEmailElement.style.borderColor = "red";
-      } else if (
-        formTitleElement.textContent === null ||
-        formTitleElement.textContent === undefined
-      ) {
-        formTitleElement.style.borderColor = "red";
-      } else {
-        postFranklinFormData(formData, userEmail, formTitle);
-      }
-    });
+    return formData;
   }
 
-  const postFranklinFormData = async (data, userEmail, formTitle) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "text/plain;charset=utf-8");
-    var spinner = document.getElementById("spinner");
-    spinner.style.display = "flex";
+  //add click event to button
+  submitBtn.addEventListener('click', (event) => {
+    let userEmail = localStorage.getItem("email");
+    let formTitleElement = document.getElementById("my-form-title");
+    let formTitle = formTitleElement.textContent;
+    let formData = getFormData();
 
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: JSON.stringify(data),
-      // mode: 'no-cors',
-      redirect: "follow",
-    };
+    if (formData.length == 0) {
+      alert("form data is empty")
+    } else if (formTitleElement.textContent === null || formTitleElement.textContent === undefined || formTitleElement.textContent.trim()==='') {
+        alert("form title is empty")
+    } else {
+         postFranklinFormData(formData, userEmail, formTitle.trim());
+    }
+  });
+}
 
-    let URL =
-      FORM_EXPRESS_BACKEND_URL +
-      `requestType=createform&formTitle=${formTitle}&email=${userEmail}`;
+const postFranklinFormData = async (data, userEmail, formTitle) => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "text/plain;charset=utf-8");
+  var spinner = document.getElementById('spinner');
+  spinner.style.display = 'flex';
 
-    fetch(encodeURI(URL), requestOptions)
-      .then((response) => response.text())
-      .then((result) => handleFormSubmissionResult(result))
-      .catch((error) => handleFormSubmissionResultError(error));
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(data),
+    // mode: 'no-cors',
+    redirect: 'follow'
   };
 
-  const handleFormSubmissionResult = (result) => {
-    var spinner = document.getElementById("spinner");
-    spinner.style.display = "none";
-    console.log(result);
+  let URL = FORM_EXPRESS_BACKEND_URL + `requestType=createform&formTitle=${formTitle}&email=${userEmail}`;
 
-    const resultDetails = JSON.parse(result);
+  fetch(encodeURI(URL), requestOptions)
+    .then(response => response.text())
+    .then(result => handleFormSubmissionResult(result))
+    .catch(error => handleFormSubmissionResultError(error));
+}
 
-    document.getElementById("result").classList.remove("hidden");
+const handleFormSubmissionResult = (result) => {
+  var spinner = document.getElementById('spinner');
+  spinner.style.display = 'none';
+  console.log(result);
 
-    document.getElementById("result-folder-url").textContent = "Form Folder";
-    document.getElementById("result-folder-url").href = resultDetails.folderURL;
+  const resultDetails = JSON.parse(result);
 
-    document.getElementById("result-form").textContent = "Form";
-    document.getElementById("result-form").href = resultDetails.formPublishURL;
-  };
+  let successDiv = document.createElement("div");
+  successDiv.classList.add("success-div")
 
-  const handleFormSubmissionResultError = (error) => {
-    var spinner = document.getElementById("spinner");
-    spinner.style.display = "none";
-    console.log(error);
+  let successIcon = document.createElement("img");
+  successIcon.classList.add("success-icon");
+  successIcon.src = 'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check" viewBox="0 0 16 16">     <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>   </svg>';
 
-    document.getElementById("result-status").textContent = "Error";
-  };
+  let successMessage = document.createElement("p");
+  successMessage.classList.add("success-message")
+  successMessage.textContent = "Your form is successfully created";
 
-  const getFormSubmissionSuccessDiv = (successMessage) => {
-    let div = document.createElement("div");
-    let h2 = document.createElement("h2");
-    h2.textContent = successMessage;
-    div.appendChild(h2);
-    return div;
-  };
+  let formButton = document.createElement("a");
+  formButton.classList.add("success-button");
+  formButton.setAttribute("target","_blank");
+  formButton.textContent="View Form";
+  formButton.href=resultDetails.formPublishURL
+
+  let formFolder = document.createElement("a");
+  formFolder.classList.add("success-button");
+  formFolder.setAttribute("target","_blank");
+  formFolder.textContent="Manage Form";
+  formFolder.href= resultDetails.folderURL;
+
+  successDiv.appendChild(successIcon);
+  successDiv.appendChild(successMessage);
+  successDiv.appendChild(formButton);
+  successDiv.appendChild(formFolder);
+
+  updateUserForms( resultDetails.formTitle , resultDetails.formPublishURL, resultDetails.folderURL );
+  createFormContainer.replaceChildren(successDiv);
+}
+
+const handleFormSubmissionResultError = (error) => {
+  var spinner = document.getElementById('spinner');
+  spinner.style.display = 'none';
+  console.log(error);
+}
+
+const getFormSubmissionSuccessDiv = (successMessage) => {
+  let div = document.createElement("div");
+  let h2 = document.createElement("h2");
+  h2.textContent = successMessage;
+  div.appendChild(h2);
+  return div;
+}
+
+function testbox() {
+  let formElement = getTextBoxElement();
+  createFormContainer.insertBefore(formElement, createFormContainer.lastChild);
+  addSubmitButton();
+}
+
+// testbox();
+
+// ******* LOGIN CONTAINER ******* //
+
+
+function showSideContainer() {
+    const options = document.getElementById("options");
+    const option1 = document.getElementById("option-1");
+    const option2 = document.getElementById("option-2");
+    const option3 = document.getElementById("option-3");
+
+    option1 && option1.addEventListener("click", () => { questionCreator("text"); });
+    option2 && option2.addEventListener("click", () => { questionCreator("radio"); });
+    option3 && option3.addEventListener("click", () => { questionCreator("checkbox"); });
+
+
+    let addNewBtn = document.getElementById("plus-btn");
+    addNewBtn && addNewBtn.addEventListener("click", () => {
+        if (options.classList.contains('hidden')) {
+            options.classList.remove("hidden");
+        } else {
+            options.classList.add("hidden");
+        }
+       
+        options.style.animationFillMode = "fadeout"
+    });
+}
+
+
+function showLoginContainer() {
+  let ele = loginContainer.getElementsByTagName("img")[0];
+  ele.src =
+    'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="green" class="bi bi-arrow-right" viewBox="0 0 16 16">  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>';
+  ele.addEventListener("click", loginSubmissionHandler);
+  loginContainer.style.display = "block";
+
+}
+
+const loginSubmissionHandler = () => {
+  const userEmailElement = document.getElementById("user-email-id");
+  const emailId = userEmailElement.value;
+  if (!/@gmail\.com$/.test(emailId)) {
+    userEmailElement.style.borderBlockStyle = "solid";
+    userEmailElement.style.borderColor = "red";
+  } else {
+    localStorage.setItem("email", emailId);
+    startExpressFlow();
+  }
+};
+
+const startExpressFlow = () => {
+  let userEmail = localStorage.getItem("email");
+  if (userEmail === undefined || userEmail === null) {
+    formNavContainer.style.display = "none";
+    sideContainer.style.display = "none";
+    createFormContainer.style.display = 'none';
+    showLoginContainer();
+  } else {
+    loginContainer.style.display="none"; 
+    createFormContainer.style.display = 'block';
+    showLoggedInPage();
+    document.getElementById("user-welcome-title").textContent = `Welcome ${userEmail}`;
+    
+  }
+}
+
+startExpressFlow();
+
+function testLoginContainer() {
+  let loginContainer = getLoginContainer();
+  formActionContainer.appendChild(loginContainer);
+}
+
+// testLoginContainer();
+
+function showLoggedInPage() {
+    sideContainer.style.display = "block";
+    formNavContainer.style.display = "block";
+
+    showSideContainer();
+
+    const tabContainer = document.querySelector(".tab-container");
+    const tabs = tabContainer.querySelectorAll(".tab");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        // Remove active class from all tabs and tab contents
+        tabs.forEach((t) => t.classList.remove("active"));
+        // Add active class to clicked tab and corresponding tab content
+        tab.classList.add("active");
+        const title = tab.dataset.title;
+        switch (title) {
+          case "New Form":
+            showFomCreatorContainer();
+            break;
+          case "My forms":
+            showMyForms();
+            break;
+          case "preview":
+            showFormPreview();
+            break;
+          default:
+            break;
+        }
+      });
+    });
+}
+
+
+function showFomCreatorContainer() {
+    sideContainer.style.display = "block";
+    createFormContainer.style.display = "block";
+    previewContainer.style.display = "none";
+    myFormsContainer.style.display = "none";
+}
+
+function showMyForms() {
+   sideContainer.style.display = "none";
+   createFormContainer.style.display = "none";
+   previewContainer.style.display = "none";
+   myFormsContainer.style.display = "block";
+
+   const formList = document.getElementById("form-list");
+
+   let userEmail = localStorage.getItem('email');
+   const forms =  getUserForms(userEmail);
+   myFormsContainer.innerHTML = '';
+   forms.then((resultJson)=>{
+            resultJson.forEach(form => {
+            const row = document.createElement("div");
+            row.classList.add("form-row");
+        
+            const title = document.createElement("div");
+            title.classList.add("form-title");
+            title.innerText = form.FormTitle;
+        
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("button-container");
+        
+            const publishLink = document.createElement("a");
+            publishLink.classList.add("form-button");
+            publishLink.innerText = "Form URL";
+            publishLink.href = form.FormPublishlink;
+            publishLink.target = "_blank";
+            publishLink.addEventListener("click", () => {
+                // Add code to handle button click here
+            });
+
+            const folderLink = document.createElement("a");
+            folderLink.classList.add("form-button");
+            folderLink.innerText = "Folder";
+            folderLink.href = form.formFolderLink;
+            folderLink.target = "_blank";
+            folderLink.addEventListener("click", () => {
+                // Add code to handle button click here
+            });
+        
+            buttonContainer.appendChild(publishLink);
+            buttonContainer.appendChild(folderLink);
+        
+            row.appendChild(title);
+            row.appendChild(buttonContainer);
+        
+            myFormsContainer.appendChild(row);
+        });
+    });
+   
+}
+
+
+async function getUserForms( userEmail ) {
+
+     let cachedForms = localStorage.getItem(`userForm-${userEmail}`);
+
+     if ( cachedForms !== undefined && cachedForms !== null)
+       return JSON.parse(cachedForms);
+
+    let URL = FORM_EXPRESS_BACKEND_URL + `requestType=getforms&email=${userEmail}`;
+
+    const response = await fetch(URL);
+    const data = await response.json();
+  
+    // Assuming that the response is an array of objects in the format you provided
+    const forms = data.map(item => {
+      return {
+        "FormTitle": item.FormTitle,
+        "FormPublishlink": item.FormPublishURL,
+        "formFolderLink": item.FormFolderURL,
+      };
+    });
+
+    localStorage.setItem(`userForm-${userEmail}`, JSON.stringify(forms));
+  
+    return forms;
+}
+  
+
+function showFormPreview() {
+    sideContainer.style.display = "none";
+    createFormContainer.style.display = "none";
+    previewContainer.style.display = "block";
+    myFormsContainer.style.display = "none";
+}
+
+function updateUserForms(formTitle , formPublishLink, formFolderURL ) {
+    let userEmail = localStorage.getItem('email');
+    let cachedForms = localStorage.getItem(`userForm-${userEmail}`);
+    if ( cachedForms !== undefined && cachedForms !== null) {
+        let userForms =  JSON.parse(cachedForms);
+        
+        let addedForm = {};
+        addedForm["FormTitle"] = formTitle,
+        addedForm["FormPublishlink"] = formPublishLink,
+        addedForm["formFolderLink"] = formFolderURL,
+    
+        userForms.push(addedForm);
+        localStorage.setItem(`userForm-${userEmail}`, JSON.stringify(userForms));
+    }
+}
+
 };
