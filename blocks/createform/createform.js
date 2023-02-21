@@ -6,7 +6,7 @@ let codeBlock = `
 <div class="main-form-container" id="main-form-container">
     
     <div class="form-nav-container form-item" id = "form-nav-container">
-        <h2 id="user-welcome-title"> Welcome User </h2>
+        <h4 id="user-welcome-title"> Welcome User </h4>
         <div class="tab-container">
             <div class="tab active" id="new-form-tab" data-title="New Form"> New Form </div>
             <div class="tab" id="my-forms-tab" data-title="My forms"> My Forms </div>
