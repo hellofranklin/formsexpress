@@ -166,7 +166,8 @@ main input:hover {
 
 main .section {
   padding: 64px 16px;
-  margin-top: 100px;
+  /* neeraj change */
+  /* margin-top: 100px; */         
   background-color: #fff;
 }
 
