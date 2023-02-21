@@ -600,9 +600,10 @@ const initializeFields = () => {
         successSheetLink.href = form.resultSheetUrl;
         successSheetLink.target = "_blank";
 
-        const publishForm = document.createElement("button");
+        const publishForm = document.createElement("a");
         publishForm.classList.add("form-button");
         publishForm.innerText = "Publish";
+       
         publishForm.setAttribute("formTitle", form.FormTitle);
         publishForm.addEventListener("click", (event) => {
           let ele = event.target;

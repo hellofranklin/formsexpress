@@ -640,3 +640,56 @@ border-radius: 5px;
 .createform-wrapper input.choice-field {
   display: inline-block;
 }
+
+/* For Mobile*/
+
+@media only screen and (max-width: 600px) {
+
+  .createform-wrapper .main-form-container {
+    width: 90%;
+  
+}
+
+  .createform-wrapper .form-item {
+   padding: 10px 5px;
+}
+
+  h4#user-welcome-title {
+    font-size: 15px;
+    word-wrap: break-word;
+  }
+
+  div#new-form-tab {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+div#my-forms-tab {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+div#preview-tab {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.createform-wrapper .form-button {
+  margin-bottom:5px;
+}
+
+.createform-wrapper .form-button {
+  margin-right: 0px;
+}
+
+.createform-wrapper a.form-button {
+  font-size: small;
+}
+  
+}
