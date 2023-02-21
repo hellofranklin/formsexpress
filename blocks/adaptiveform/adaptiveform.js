@@ -17,7 +17,7 @@ export class AdaptiveForm {
         this.element = element;
         this.model = createFormInstance(formJson, undefined);
         this.model?.subscribe(() => {
-          window.open("https://main--formsexpress--neerajadobe93.hlx.page/forms/thankyou", "_self");
+          window.open("https://main--formsexpress--neerajadobe93.hlx.live/forms/thankyou", "_self");
         }, "success")
         registerFunctions(customFunctions);
      }
