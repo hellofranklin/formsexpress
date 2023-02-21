@@ -3496,7 +3496,7 @@ html,body {
 }
 
 .cmp-adaptiveform-datepicker__widget {
-  width: calc(100% - 16px);
+  width: calc(100% - 1px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -3596,7 +3596,7 @@ html,body {
 }
 
 .cmp-adaptiveform-fileinput__widget {
-  width: calc(100% - 16px);
+  width: calc(100% - 1px);
   margin-top: 5px
 }
 
@@ -3679,7 +3679,7 @@ html,body {
 }
 
 .cmp-adaptiveform-numberinput__widget {
-  width: calc(100% - 16px);
+  width: calc(100% - 1px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -3804,7 +3804,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 }
 
 .cmp-adaptiveform-textinput__widget {
-  width: calc(100% - 16px);
+  width: calc(100% - 1px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -4101,7 +4101,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 }
 
 .cmp-adaptiveform-sliderinput__widget {
-  width: calc(100% - 16px);
+  width: calc(100% - 1px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -4231,7 +4231,7 @@ textarea.cmp-adaptiveform-textinput__widget {
   max-width: none;
 }
 
-.cmp-adaptiveform-container {
+/* .cmp-adaptiveform-container {
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
@@ -4242,7 +4242,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 .cmp-adaptiveform-container > div {
   display: flex;
   margin-top: 0px;
-}
+}*/
 
 .adaptiveform-container h5 {
   font-size: 20px;
@@ -4347,7 +4347,7 @@ textarea.cmp-adaptiveform-textinput__widget {
       flex-direction: row;
   }
 
-   .cmp-adaptiveform-container > div {
+   /*.cmp-adaptiveform-container > div {
       order: 5;
       flex-basis: calc((100% - 30px)/2);
       max-width: calc((100% - 30px)/2);
@@ -4355,7 +4355,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 
    .cmp-adaptiveform-container > div:last-child {
       margin-left: auto;
-  }
+  } */
 }
 
 @media (min-width: 992px) {
@@ -4376,10 +4376,10 @@ textarea.cmp-adaptiveform-textinput__widget {
       column-gap: 130px;
   }
 
-   .cmp-adaptiveform-container > div {
+  /* .cmp-adaptiveform-container > div {
       flex-basis: calc((100% - 130px)/2);
       max-width: calc((100% - 130px)/2);
-  }
+  } */
 }
 
 @media (min-width: 1200px) {
