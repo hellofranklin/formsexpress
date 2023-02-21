@@ -17,6 +17,9 @@ header nav {
   padding: 0 1rem;
   /* background-color: var(--background-color); */
   font-family: var(--body-font-family);
+  background: #9796f0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fbc7d4, #9796f0); 
 }
 
 header nav[aria-expanded=true] {
