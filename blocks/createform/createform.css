@@ -597,3 +597,7 @@ body {
   margin-top: 2px;
   background-color: white;
 }
+
+.createform-wrapper input.choice-field {
+  display: inline-block;
+}
