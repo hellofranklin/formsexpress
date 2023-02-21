@@ -4218,7 +4218,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 /* Form 2 column Layout*/
 
 .adaptiveform-container {
-  display: flex;
+ /* display: flex; */
   flex-direction: column;
   align-items: center;
   row-gap: 32px;
