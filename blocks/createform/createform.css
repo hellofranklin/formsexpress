@@ -549,8 +549,9 @@ span#required-text {
   font-size: 1.2rem;
 }
 
-.button-container {
+.createform-wrapper .button-container {
   display: inline-block;
+  width: 100%;
 }
 
 .form-button {
