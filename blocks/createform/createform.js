@@ -213,8 +213,7 @@ const initializeFields = () => {
   }
 
   function deleteMultipleChoice(parentDiv, choiceNo) {
-    let intChoice = parseInt(choiceNo) - 1;
-    let delChoice = parentDiv.children[intChoice];
+    let delChoice = parentDiv.querySelector(`div.choice-${choiceNo}`)
     delChoice.remove();
     console.log(delChoice);
   }
