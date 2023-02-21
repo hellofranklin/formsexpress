@@ -481,7 +481,7 @@ border-radius: 5px;
   margin-top: 30px;
   border: none;
   border-radius: 4px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
 }
 
 .createform-wrapper .login-container .submit-icon {
@@ -691,5 +691,17 @@ div#preview-tab {
 .createform-wrapper a.form-button {
   font-size: small;
 }
-  
+
+.createform-wrapper .login-container  input {
+ 
+  font-size: 15px;
+}
+div#login-container {
+  box-shadow: none;
+}
+
+.createform-wrapper .login-container input {
+  font-size: 15px;
+  border: 1px solid #aaa;
+}
 }

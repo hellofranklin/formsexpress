@@ -16,6 +16,7 @@ let codeBlock = `
     </div>
     <div class="form-action-container form-item" id = "form-action-container">
         <div class="login-container form-item" id="login-container">
+          
             <input type="email" id="user-email-id" required placeholder="Enter your Gmail ID">
             <img class="submit-icon">
        </div>
