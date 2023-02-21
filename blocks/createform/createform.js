@@ -497,7 +497,7 @@ const initializeFields = () => {
     let userEmail = localStorage.getItem("email");
     if (userEmail === undefined || userEmail === null) {
       formNavContainer.style.display = "none";
-      sideContainer.style.display = "none";
+      sideContainer.style.visibility = "hidden";
       createFormContainer.style.display = "none";
       showLoginContainer();
     } else {
@@ -520,7 +520,7 @@ const initializeFields = () => {
   // testLoginContainer();
 
   function showLoggedInPage() {
-    sideContainer.style.display = "block";
+    sideContainer.style.visibility = "visible";
     formNavContainer.style.display = "block";
 
     showSideContainer();
@@ -552,14 +552,14 @@ const initializeFields = () => {
   }
 
   function showFomCreatorContainer() {
-    sideContainer.style.display = "block";
+    sideContainer.style.visibility = "visible";
     createFormContainer.style.display = "block";
     previewContainer.style.display = "none";
     myFormsContainer.style.display = "none";
   }
 
   function showMyForms() {
-    sideContainer.style.display = "none";
+    sideContainer.style.visibility = "hidden";
     createFormContainer.style.display = "none";
     previewContainer.style.display = "none";
     myFormsContainer.style.display = "block";
@@ -689,7 +689,7 @@ const initializeFields = () => {
   }
 
   function showFormPreview() {
-    sideContainer.style.display = "none";
+    sideContainer.style.visibility = "hidden";
     createFormContainer.style.display = "none";
     previewContainer.style.display = "block";
     myFormsContainer.style.display = "none";
