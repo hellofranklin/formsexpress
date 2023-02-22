@@ -35,7 +35,7 @@ let codeBlock = `
       <div id="options" class="hidden">
           <button class="option-text" id="option-1"> Text Response</button>
           <button class="option-text" id="option-2"> Single Choice </button>
-          <button class="option-text" id="option-3"> Multiple Choice </button>
+          <button class="option-text" id="option-3" disabled> Multiple Choice </button>
       </div>
      
     </div>
@@ -74,7 +74,7 @@ const initializeFields = () => {
   const formNavContainer = document.getElementById("form-nav-container");
   const email = document.getElementById("user-email");
   const FORM_EXPRESS_BACKEND_URL =
-    "https://script.google.com/macros/s/AKfycbwOl_Vs01Zm3ekrFtibDjub0k7dOnR6bJ8gMc7DtJ0pvd23I0I4n-jQK46re_7JvYLc/exec?";
+    "https://script.google.com/macros/s/AKfycbx7VP3qZYuPsq85epm9VxYZqldWOkGaLyPHwG5xTpWSiZxzKOCATRdlHZYYzG6x-gRM/exec?";
 
   const sideContainer = document.getElementById("side-container");
   const loginContainer = document.getElementById("login-container");
@@ -288,7 +288,7 @@ const initializeFields = () => {
           formItem["enum"] = "";
           formItem["enumsNames"] = "";
           formItem["events.click"] = "";
-          // formItem['isRequired'] = 'true';
+          formItem['required'] = element.querySelector('input[type=checkbox]').checked;
           formData.push(formItem);
         } else if (element.classList.contains("user-form-singlechoice-item")) {
           const questionLabel = element.getElementsByTagName("input")[0].value;
@@ -319,7 +319,7 @@ const initializeFields = () => {
           formItem["enum"] = enumsString;
           formItem["enumsNames"] = enumsString;
           formItem["events.click"] = "";
-          // formItem['isRequired'] = 'true';
+          formItem['required'] = element.querySelector('input[type=checkbox]').checked;
           formData.push(formItem);
         }
       }
