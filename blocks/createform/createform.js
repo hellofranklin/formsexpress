@@ -8,6 +8,7 @@ let codeBlock = `
     <div class="form-nav-container form-item" id = "form-nav-container">
        
         <h4 id="user-welcome-title"> Welcome User </h4>
+        
         <div class="tab-container">
             <div class="tab active" id="new-form-tab" data-title="New Form"> New Form </div>
             <div class="tab" id="my-forms-tab" data-title="My forms"> My Forms </div>
@@ -21,7 +22,7 @@ let codeBlock = `
             <img class="submit-icon">
        </div>
        <div class="createform-container " id="createform-container">
-         <h2 contenteditable="true" id="my-form-title"> Untitled</h2>
+       <input type="text" id="my-form-title" placeholder = "Untitled Form">
        </div>
        <div class="myforms-container" id="myforms-container">
        
@@ -330,21 +331,33 @@ const initializeFields = () => {
     submitBtn.addEventListener("click", (event) => {
       let userEmail = localStorage.getItem("email");
       let formTitleElement = document.getElementById("my-form-title");
-      let formTitle = formTitleElement.textContent;
+      let formTitle = formTitleElement.value;
       let formData = getFormData();
 
       if (formData.length == 0) {
         alert("form data is empty");
-      } else if (
-        formTitleElement.textContent === null ||
-        formTitleElement.textContent === undefined ||
-        formTitleElement.textContent.trim() === ""
-      ) {
-        alert("form title is empty");
+      } else if ( ! isValid(formTitle) ) {
+         return;
       } else {
         postFranklinFormData(formData, userEmail, formTitle.trim());
       }
     });
+  }
+
+  function isValid( formTitle ) {
+    const value = formTitle.trim(); // remove leading/trailing white space
+    const pattern = /^\S+$/;
+    const isMatch = pattern.test(value);
+ // Display a message based on whether the input is valid
+    if (value === "") {
+      alert("Form Title cannot be empty");
+      return false;
+    } else if (!isMatch) {
+      alert("Form Title must not contain any spaces");
+      return false;
+    } 
+
+    return true;
   }
 
   const postFranklinFormData = async (data, userEmail, formTitle) => {

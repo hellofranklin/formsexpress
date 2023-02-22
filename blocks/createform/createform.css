@@ -34,8 +34,10 @@ body {
   
 }
 
-h2#my-form-title {
+input#my-form-title {
   font-size: 25px;
+  text-align:center;
+  border: 0px;
 }
 
 .createform-wrapper .form-item {
