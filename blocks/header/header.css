@@ -42,7 +42,9 @@ header nav[aria-expanded=true] {
 
   header nav[aria-expanded=true] {
     min-height: 0;
-    overflow: visible;
+   // overflow: visible;
+    margin-bottom: 15px;
+    background: white;
   }
 }
 
