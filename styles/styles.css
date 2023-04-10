@@ -247,3 +247,8 @@ main .section.highlight {
   margin-right: 100px;
   text-align: center;
 }
+
+main {
+    width: 50%;
+    margin: auto;
+}
