@@ -4389,3 +4389,29 @@ textarea.cmp-adaptiveform-textinput__widget {
       padding-right: 75px;
   }
 }
+
+
+.surveyform .cmp-adaptiveform-text-input{
+    font-weight: bold;
+    color: #9897f0;
+
+}
+
+.surveyform .cmp-adaptiveform-dropdown__label{
+     font-weight: bold;
+     color: #9897f0;
+}
+
+.surveyform .cmp-adaptiveform-radiobutton__label{
+     font-weight: bold;
+     color: #9897f0;
+}
+
+.surveyform .cmp-adaptiveform-textinput__label{
+  font-weight: bold;
+  color: #9897f0;
+}
+
+.cmp-adaptiveform-range input.cmp-adaptiveform-textinput__widget {
+ background-image:  linear-gradient(to right, #9897f0 88.88888888888889%, #8843c8 88.88888888888889%) !important;
+}
