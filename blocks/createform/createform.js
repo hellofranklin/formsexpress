@@ -75,7 +75,7 @@ const initializeFields = () => {
   const formNavContainer = document.getElementById("form-nav-container");
   const email = document.getElementById("user-email");
   const FORM_EXPRESS_BACKEND_URL =
-    "https://script.google.com/macros/s/AKfycbx7VP3qZYuPsq85epm9VxYZqldWOkGaLyPHwG5xTpWSiZxzKOCATRdlHZYYzG6x-gRM/exec?";
+    "https://script.google.com/macros/s/AKfycbx5RfFIRzYV-82VooENNTqXynFQ4vPqh7v5yAtYkvGr2EqXD3MLa29fJXZY0SgEdih6/exec?";
 
   const sideContainer = document.getElementById("side-container");
   const loginContainer = document.getElementById("login-container");
