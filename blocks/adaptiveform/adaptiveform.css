@@ -4412,10 +4412,17 @@ textarea.cmp-adaptiveform-textinput__widget {
   color: #9897f0;
 }
 
+.cmp-adaptiveform-checkbox__label {
+    font-weight: bold;
+    color: #9897f0;
+}
+
 .surveyform .cmp-adaptiveform-checkboxgroup__label{
   font-weight: bold;
   color: #9897f0;
 }
+
+
 
 .surveyform .cmp-adaptiveform-checkboxgroup-item span {
    position: relative;
