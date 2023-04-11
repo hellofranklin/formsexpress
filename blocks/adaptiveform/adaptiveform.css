@@ -4417,6 +4417,11 @@ textarea.cmp-adaptiveform-textinput__widget {
   color: #9897f0;
 }
 
+.surveyform .cmp-adaptiveform-checkboxgroup-item span {
+   position: relative;
+   bottom: 32px;
+}
+
 .cmp-adaptiveform-range input.cmp-adaptiveform-textinput__widget {
  background-image:  linear-gradient(to right, #9897f0 88.88888888888889%, #9897f0 88.88888888888889%) !important;
 }
