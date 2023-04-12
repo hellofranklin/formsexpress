@@ -4189,14 +4189,18 @@ textarea.cmp-adaptiveform-textinput__widget {
   transform: translateX(-50%);
   font-size: 20px;
   line-height: 28px;
+  color: #9796f0;
+  font-weight: bold;
+
 }
 
 .cmp-adaptiveform-range .cmp-adaptiveform-textinput__widget-min,
 .cmp-adaptiveform-range .cmp-adaptiveform-textinput__widget-max {
-  top: 10px;
+  top: 1px;
   position: relative;
   font-size: 14px;
   line-height: 22px;
+  color: #b7b6ef;
 }
 
 .cmp-adaptiveform-range .cmp-adaptiveform-textinput__widget-max {
@@ -4427,6 +4431,10 @@ textarea.cmp-adaptiveform-textinput__widget {
 .surveyform .cmp-adaptiveform-checkboxgroup-item span {
    position: relative;
    bottom: 32px;
+}
+
+.surveyform .cmp-adaptiveform-textinput__widget-wrapper {
+    width: 75%;
 }
 
 .cmp-adaptiveform-range input.cmp-adaptiveform-textinput__widget {
