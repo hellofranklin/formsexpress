@@ -1,0 +1,102 @@
+.formbuilder-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 200px;
+}
+.form-panel {
+  flex-grow: 0.6;
+}
+
+.mainPanel {
+  max-width: 70%;
+}
+
+.sidebar__menu {
+  display: flex;
+  margin-top: 20px;
+}
+
+.sidebar__menuOptions {
+  flex: 1;
+  text-align: center;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  text-decoration: none;
+  color: #6b6b6b;
+  font-weight: 300;
+  padding-left: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.sidebar__menuOptions.active {
+  color: #292222;
+  border-bottom: 3px solid #f76a3f;
+}
+
+.createButton {
+  margin: auto;
+  margin-top: 10px;
+}
+
+.formbuilder-container {
+  display: flex;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 0px;
+  font-weight: 400;
+  border-bottom: 0.8px solid rgb(208, 189, 189);
+  transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
+  border: 0px;
+  border-bottom: 1px solid rgb(118, 96, 164);
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+
+@media screen and (min-width: 576px) {
+  .formbuilder-container {
+    max-width: 540px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+    /* CSS styles for mobile view */
+  .formbuilder-container {
+    max-width: 540px;
+  }
+
+  .sidebar-view {
+    display: none;
+  }
+  
+  .bottom-view {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* CSS styles for desktop view */
+
+  .formbuilder-container {
+    max-width: 740px;
+    margin: 0 auto 10px;
+  }
+
+  .sidebar-view {
+    display: block;
+  }
+  
+  .bottom-view {
+    display: none;
+  }
+}
+
+
+

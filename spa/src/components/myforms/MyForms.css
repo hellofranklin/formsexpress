@@ -1,0 +1,23 @@
+.form-cards .loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.form-cards .loading-dot {
+  width: 17px;
+  height: 17px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 0 4px;
+  animation: dotBounce 1.4s infinite ease-in-out both;
+}
+
+.form-cards .loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.form-cards .loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}

@@ -17,7 +17,7 @@ export class AdaptiveForm {
         this.element = element;
         this.model = createFormInstance(formJson, undefined);
         this.model?.subscribe(() => {
-          window.open("https://main--formsexpress--neerajadobe93.hlx.live/forms/thankyou", "_self");
+          window.open("thankyou", "_self");
         }, "success")
         registerFunctions(customFunctions);
      }
@@ -88,6 +88,7 @@ export class AdaptiveForm {
     if (!formLink || !formLink.href) {
         throw new Error("No formdata action is provided, can't render adaptiveformblock");
     }
-
-    return await createFormContainer(formLinkWrapper || formLink, formLink.href);
+    
+    let afFormLink = window.location.href.substring(0,window.location.href.length-1) + "/form.json";
+    return await createFormContainer(formLinkWrapper || formLink, afFormLink);
   }

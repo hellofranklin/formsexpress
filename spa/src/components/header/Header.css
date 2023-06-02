@@ -1,0 +1,147 @@
+/* Header container */
+.header-container {
+  background-color: #fff;
+  border-bottom: 1px solid #dadce0;
+  width: 100%;
+  top: 0;
+  position: sticky;
+  z-index: 1;
+}
+
+/* Navigation container */
+.navigation-container {
+  display: flex;
+}
+
+.left-navigation-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.logo {
+  margin-right: 5px;
+  float: left;
+}
+
+.sitetitle {
+  font-weight: bold;
+}
+
+.right-navigation-container {
+  display: flex;
+  padding-right: 2px;
+}
+
+.create-form-button {
+  background-color: #673ab7;
+  color: #fff;
+  margin: 0 10px;
+}
+
+/* Header menu */
+.header-menu {
+  position: relative;
+}
+
+.header-profile-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#profileImage {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 32px;
+  color: #333;
+  margin-right: 8px;
+}
+
+.header-profile-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.header-profile-arrow {
+  font-size: 12px;
+}
+
+.header-profile-menu {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 80px;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px;
+  z-index: 1;
+}
+
+.header-profile-menu li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.header-profile-menu-item:hover {
+  color: rgb(0, 94, 255);
+}
+
+.header-profile-menu a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.header-profile-menu a:hover {
+  color: #428bca;
+}
+
+/* Header bar */
+.headerbar {
+  padding: 8px 24px 0;
+}
+
+/* Tab container */
+.tab-list {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  gap: 10px;
+  font-size: 14px;
+  border-bottom: none;
+}
+
+.tab-list .taboption {
+  align-items: center;
+  color: #6b6b6b;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tab-list .taboption.active {
+  border-bottom: 3px solid #f76a3f;
+  color: #292222;
+}

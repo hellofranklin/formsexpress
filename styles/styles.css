@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+:root {
   /* colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
@@ -19,10 +19,14 @@
   --highlight-background-color: #ccc;
   --text-color: #000;
 
+  --highlight-gradient: linear-gradient(75deg,#04bcff, #02759f );
+
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  --body-font-family: "Adobe Clean","helvetica neue", helvetica, ubuntu, roboto, noto,
+    sans-serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --fixed-font-family: "Adobe Clean","Roboto Mono", menlo, consolas, "Liberation Mono",
+    monospace;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -39,7 +43,6 @@
 
   /* nav height */
   --nav-height: 64px;
-
 }
 
 body {
@@ -48,10 +51,9 @@ body {
   font-family: var(--body-font-family);
   line-height: 1.6;
   color: var(--text-color);
-  background: #9796f0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: var(--background-color);
   display: none;
+  font-family: "Adobe Clean", adobe-clean, "Trebuchet MS", sans-serif;
 }
 
 body.appear {
@@ -60,27 +62,47 @@ body.appear {
 
 header {
   height: var(--nav-height);
- margin-bottom:30px;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
   margin-top: 1em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
-p, dl, ol, ul, pre, blockquote {
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -95,13 +117,16 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-code, pre, samp {
+code,
+pre,
+samp {
   font-family: var(--fixed-font-family);
   font-size: var(--body-font-size-s);
 }
 
-code, samp {
-  padding: .125em;
+code,
+samp {
+  padding: 0.125em;
 }
 
 pre {
@@ -110,7 +135,8 @@ pre {
 
 /* buttons */
 
-a.button:any-link, button {
+a.button:any-link,
+button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -118,7 +144,7 @@ a.button:any-link, button {
   border: 2px solid transparent;
   padding: 5px 30px;
   text-align: center;
-  font-style: normal; 
+  font-style: normal;
   font-weight: 600;
   cursor: pointer;
   color: var(--background-color);
@@ -130,22 +156,26 @@ a.button:any-link, button {
   border-radius: 30px;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:hover,
+a.button:focus,
+button:hover,
+button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
-button:disabled, button:disabled:hover {
+button:disabled,
+button:disabled:hover {
   background-color: var(--overlay-background-color);
   cursor: unset;
 }
 
-a.button.secondary, button.secondary {
+a.button.secondary,
+button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
-  color: var(--text-color)
-} 
-
+  color: var(--text-color);
+}
 
 main input {
   font-size: 1.25rem;
@@ -153,7 +183,7 @@ main input {
   max-width: 50rem;
   display: block;
   margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;    
+  padding: 0.75rem 0.6rem;
   border-radius: 0.25rem;
   box-sizing: border-box;
   border: 1px solid var(--text-color);
@@ -167,15 +197,12 @@ main input:hover {
 
 main .section {
   padding: 64px 16px;
-  /* neeraj change */
-  /* margin-top: 100px; */         
-  background-color: #fff;
 }
 
 main pre {
   background-color: var(--overlay-background-color);
   padding: 1em;
-  border-radius: .25em;
+  border-radius: 0.25em;
   overflow-x: auto;
   white-space: pre;
 }
@@ -213,12 +240,7 @@ main img {
 @media (min-width: 600px) {
   main .section {
     padding: 64px 32px;
-  }  
- 
- main {
-    width: 90%;
-    margin: auto;
-   }
+  }
 }
 
 @media (min-width: 900px) {
@@ -228,37 +250,44 @@ main img {
     --heading-font-size-l: 36px;
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;  
+    --heading-font-size-xs: 22px;
   }
-  
+
   .section > div {
     max-width: 1200px;
     margin: auto;
   }
- 
-  main {
-    width: 70%;
-    margin: auto;
-   }
 }
 
 /* progressive section appearance */
-main .section[data-section-status='loading'],
-main .section[data-section-status='initialized'] {
+main .section[data-section-status="loading"],
+main .section[data-section-status="initialized"] {
   display: none;
 }
 
 main .section.highlight {
-  background-color: var(--highlight-background-color);
+  background: var(--highlight-gradient);
 }
 
-.section.thankyoustyle {
-  margin-left: 100px;
-  margin-right: 100px;
-  text-align: center;
+.default-content-wrapper,
+.quote-wrapper {
+  max-width: 900px;
+  margin: auto;
+ 
 }
 
-main {
-    width: 80%;
-    margin: auto;
+.default-content-wrapper .button-container a.button {
+  background-color: transparent;
+  border-color: black;
+  color: black;
+  font-size: var(--body-font-size-s);
 }
+
+
+.columns-content-wrapper .button-container a.button {
+  background-color: transparent;
+  border-color: black;
+  color: black;
+  font-size: var(--body-font-size-s);
+}
+

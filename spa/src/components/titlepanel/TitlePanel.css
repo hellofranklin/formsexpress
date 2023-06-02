@@ -1,0 +1,18 @@
+.title-container {
+  border: 1px solid #ced4da;
+  padding: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+ 
+}
+
+.title-container .form-title {
+  font-size: 24pt;
+}
+
+.title-container .form-description {
+  font-size: 11pt;
+}
+
+

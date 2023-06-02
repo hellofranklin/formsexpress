@@ -1,0 +1,129 @@
+.form-card {
+  position: relative;
+  width: 180px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  text-align: center;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.form-card:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-card-image {
+  cursor: pointer;
+  border: 1px solid #eee;
+  margin: 2px;
+}
+
+.form-card-header {
+  padding: 5px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-card-body {
+  padding: 10px;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.form-card-menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.form-card-menu-dots {
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.form-card-menu-items {
+  opacity: 1;
+  display: block;
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  padding: 0.2rem;
+  bottom: -100px;
+  right: -100px;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  width: 155px;
+}
+
+a.form-card-menu-item {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  padding: 2px;
+  font-weight: 500;
+  font-size: 0.775rem;
+  font-weight: 400;
+  color: rgb(66, 66, 66);
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+
+a.form-card-menu-item:hover {
+  color: #01759f;
+  background-color: #eee;
+}
+
+a.form-card-menu-item svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.795rem;
+}
+
+.createButton {
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 12px 24px;
+  color: #ffffff;
+  background: #01759f;
+
+  font-size: 16px;
+  transition: all 0.1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 1px #eaeeee;
+}
+
+.createButton:hover {
+  background-color: #ffffff;
+  color: #01759f;
+}
+
+@media screen and (max-width: 767px) {
+  .form-card {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .container.sample-forms {
+    margin: auto;
+    padding: 0;
+  }
+
+  .container.my-forms {
+    margin: auto;
+    padding: 0;
+  }
+
+  .form-card-image svg {
+    width: 50%;
+  }
+
+  .form-card-menu-items {
+    left: -75px;
+  }
+}

@@ -1,0 +1,111 @@
+/* .login-box-container {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 44px;
+  }
+  
+  .login-header {
+    
+  }
+  .site-name {
+    display: inline-block;
+    margin-left: 7px;
+  }
+  
+  .sign-in-label {
+    color: #1b1b1b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .email-input {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    font-weight: 400;
+    border-bottom: 0.8px solid rgb(208, 189, 189);
+    transition: border-color 0.2s ease-in-out;
+    background: none;
+  }
+  
+  .email-input:focus {
+    border-color: #007bff;
+  }
+  
+  .login-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: block;
+    margin: auto;
+  }
+  
+  .login-button:hover {
+    background-color: #0069d9;
+  }
+  
+  .url-container {
+    margin: 20px 0;
+  }
+  
+  .url-label {
+    font-weight: bold;
+  }
+  
+  .url {
+    margin: 10px;
+    white-space: pre-wrap;
+  }
+  
+  .code-input {
+    margin: auto;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    width: 80%;
+  }
+  
+  .code-input:focus {
+    border-color: #007bff;
+  }
+  
+  .submit-button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: block;
+    margin: auto;
+  }
+  
+  .submit-button:hover {
+    background-color: #0069d9;
+  }
+   */

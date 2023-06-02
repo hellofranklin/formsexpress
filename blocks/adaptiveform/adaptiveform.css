@@ -3457,7 +3457,7 @@ html,body {
   padding: 5px 0 0 5px
 }
 .cmp-adaptiveform-container {
-  width: 80%;
+  width: 50%;
 }
 
 .cmp-adaptiveform-container__wrapper {
@@ -3496,7 +3496,7 @@ html,body {
 }
 
 .cmp-adaptiveform-datepicker__widget {
-  width: calc(100% - 1px);
+  width: calc(100% - 16px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -3596,7 +3596,7 @@ html,body {
 }
 
 .cmp-adaptiveform-fileinput__widget {
-  width: calc(100% - 1px);
+  width: calc(100% - 16px);
   margin-top: 5px
 }
 
@@ -3679,7 +3679,7 @@ html,body {
 }
 
 .cmp-adaptiveform-numberinput__widget {
-  width: calc(100% - 1px);
+  width: calc(100% - 16px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -3804,7 +3804,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 }
 
 .cmp-adaptiveform-textinput__widget {
-  width: calc(100% - 1px);
+  width: calc(100% - 16px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -4101,7 +4101,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 }
 
 .cmp-adaptiveform-sliderinput__widget {
-  width: calc(100% - 1px);
+  width: calc(100% - 16px);
   height: 40px;
   color: #666;
   border: 1px solid #666;
@@ -4189,18 +4189,14 @@ textarea.cmp-adaptiveform-textinput__widget {
   transform: translateX(-50%);
   font-size: 20px;
   line-height: 28px;
-  color: #9796f0;
-  font-weight: bold;
-
 }
 
 .cmp-adaptiveform-range .cmp-adaptiveform-textinput__widget-min,
 .cmp-adaptiveform-range .cmp-adaptiveform-textinput__widget-max {
-  top: 1px;
+  top: 10px;
   position: relative;
   font-size: 14px;
   line-height: 22px;
-  color: #b7b6ef;
 }
 
 .cmp-adaptiveform-range .cmp-adaptiveform-textinput__widget-max {
@@ -4222,7 +4218,7 @@ textarea.cmp-adaptiveform-textinput__widget {
 /* Form 2 column Layout*/
 
 .adaptiveform-container {
- /* display: flex; */
+  display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 32px;
@@ -4392,51 +4388,4 @@ textarea.cmp-adaptiveform-textinput__widget {
       padding-left: 75px;
       padding-right: 75px;
   }
-}
-
-
-.surveyform .cmp-adaptiveform-text-input{
-    font-weight: bold;
-    color: #9897f0;
-
-}
-
-.surveyform .cmp-adaptiveform-dropdown__label{
-     font-weight: bold;
-     color: #9897f0;
-}
-
-.surveyform .cmp-adaptiveform-radiobutton__label{
-     font-weight: bold;
-     color: #9897f0;
-}
-
-.surveyform .cmp-adaptiveform-textinput__label{
-  font-weight: bold;
-  color: #9897f0;
-}
-
-.cmp-adaptiveform-checkbox__label {
-    font-weight: bold;
-    color: #9897f0;
-}
-
-.surveyform .cmp-adaptiveform-checkboxgroup__label{
-  font-weight: bold;
-  color: #9897f0;
-}
-
-
-
-.surveyform .cmp-adaptiveform-checkboxgroup-item span {
-   position: relative;
-   bottom: 32px;
-}
-
-.surveyform .cmp-adaptiveform-textinput__widget-wrapper {
-    width: 75%;
-}
-
-.cmp-adaptiveform-range input.cmp-adaptiveform-textinput__widget {
- background-image:  linear-gradient(to right, #9897f0 88.88888888888889%, #9897f0 88.88888888888889%) !important;
 }

@@ -1,0 +1,14 @@
+.radio-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-label {
+    margin-left: 10px;
+  }
+  
