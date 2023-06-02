@@ -1,6 +1,5 @@
 mountpoints:
   /: https://drive.google.com/drive/folders/1uj3n3UUZVr_WwrEdJ8kiOuObiDIEUBAr
   
-  
 folders:
   /authoring/: /spa/build/index.html  
